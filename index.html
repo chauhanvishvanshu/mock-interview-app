@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Mock Interview Application</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    /* Modal styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modal-content {
+      background-color: #1a202c;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 8px;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-900 shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a class="text-3xl font-extrabold text-white flex items-center" href="index.html">
+        <i class="fas fa-robot mr-2"></i> Mock Buddy
+      </a>
+      <div class="hidden md:flex space-x-4">
+        <a class="text-gray-400 hover:text-white flex items-center" href="index.html">
+          <i class="fas fa-home mr-1"></i> Home
+        </a>
+        <a class="text-gray-400 hover:text-white flex items-center" href="about.html">
+          <i class="fas fa-info mr-1"></i> About
+        </a>
+        <a class="text-gray-400 hover:text-white flex items-center" href="contact_us.html">
+          <i class="fas fa-envelope-open-text mr-1"></i> Contact
+        </a>
+        <a class="text-gray-400 hover:text-white flex items-center" href="#" onclick="logout()">
+          <i class="fas fa-sign-out-alt mr-1"></i> Logout
+        </a>
+      </div>
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-gray-400 hover:text-white focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden">
+      <a class="block text-gray-400 hover:text-white px-4 py-2 flex items-center" href="index.html">
+        <i class="fas fa-home mr-1"></i> Home
+      </a>
+      <a class="block text-gray-400 hover:text-white px-4 py-2 flex items-center" href="about.html">
+        <i class="fas fa-info mr-1"></i> About
+      </a>
+      <a class="block text-gray-400 hover:text-white px-4 py-2 flex items-center" href="contact_us.html">
+        <i class="fas fa-envelope-open-text mr-1"></i> Contact
+      </a>
+      <a class="block text-gray-400 hover:text-white px-4 py-2 flex items-center" href="#" onclick="logout()">
+        <i class="fas fa-sign-out-alt mr-1"></i> Logout
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gray-800 py-20">
+    <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center">
+      <div class="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
+        <h1 class="text-4xl font-bold text-white mb-4">
+          Prepare for Your Next Interview
+        </h1>
+        <p class="text-gray-400 mb-8">
+          Practice with real interview questions and get ready to ace your next job interview.
+        </p>
+        <a class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600" href="interview_dash.html">
+          Start Interview Now
+        </a>
+      </div>
+      <div class="lg:w-1/2 flex justify-center">
+        <div class="relative w-full h-0" style="padding-bottom: 56.25%;">
+          <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="absolute top-0 left-0 w-full h-full" frameborder="0" src="https://www.youtube.com/embed/NA5_WyR6xYM?autoplay=1&amp;mute=1"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interview Questions Section -->
+  <section class="container mx-auto px-4 py-20">
+    <h2 class="text-3xl font-bold text-white mb-8 text-center">
+      <i class="fas fa-comments mr-2"></i> Some Interview Questions
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 question" data-modal="myModal1">
+        <h3 class="text-xl font-bold text-white mb-4">Question 1</h3>
+        <p class="text-gray-400">
+          Describe a time when you had to manage a difficult project. How did you handle it?
+        </p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 question" data-modal="myModal2">
+        <h3 class="text-xl font-bold text-white mb-4">Question 2</h3>
+        <p class="text-gray-400">What are your strengths and weaknesses?</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 question" data-modal="myModal3">
+        <h3 class="text-xl font-bold text-white mb-4">Question 3</h3>
+        <p class="text-gray-400">How do you handle tight deadlines?</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 question" data-modal="myModal4">
+        <h3 class="text-xl font-bold text-white mb-4">Question 4</h3>
+        <p class="text-gray-400">Can you explain a complex technical concept to a non-technical person?</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 question" data-modal="myModal5">
+        <h3 class="text-xl font-bold text-white mb-4">Question 5</h3>
+        <p class="text-gray-400">Describe a situation where you had to work as part of a team.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 question" data-modal="myModal6">
+        <h3 class="text-xl font-bold text-white mb-4">Question 6</h3>
+        <p class="text-gray-400">What motivates you to perform well in your job?</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 question" data-modal="myModal7">
+        <h3 class="text-xl font-bold text-white mb-4">Question 7</h3>
+        <p class="text-gray-400">How do you prioritize your tasks when you have multiple deadlines?</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 question" data-modal="myModal8">
+        <h3 class="text-xl font-bold text-white mb-4">Question 8</h3>
+        <p class="text-gray-400">Tell me about a time when you had to learn a new skill quickly.</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 question" data-modal="myModal9">
+        <h3 class="text-xl font-bold text-white mb-4">Question 9</h3>
+        <p class="text-gray-400">How do you handle feedback and criticism?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Help & Support Section -->
+  <section class="container mx-auto px-4 py-20">
+    <h2 class="text-3xl font-bold text-white mb-8 text-center">
+      <i class="fas fa-hands-helping mr-2"></i> Help &amp; Support
+    </h2>
+    <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+      <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-headset mr-2"></i>Need Assistance?</h3>
+      <p class="text-gray-400 mb-4">If you have any questions or need help, our support team is here for you.</p>
+      <a class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600" href="contact_us.html">Contact Support</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-400">© 2025 MockInterview. All rights reserved.</p>
+      <div class="mt-4 space-x-4">
+        <a class="text-gray-400 hover:text-white" href="#"><i class="fab fa-facebook-f"></i></a>
+        <a class="text-gray-400 hover:text-white" href="#"><i class="fab fa-twitter"></i></a>
+        <a class="text-gray-400 hover:text-white" href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals for Interview Questions -->
+  <div class="modal" id="myModal1">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <h3 class="text-xl font-bold text-white mb-4">Answer 1</h3>
+      <p>In my previous project, I had to develop a login system for sellers while handling multiple security concerns. The deadline was tight, and there were unexpected issues with database integration. I handled it by breaking the project into smaller tasks, prioritizing security, and collaborating with my team for troubleshooting. I also researched best practices for securing login systems, which helped me complete the project successfully.</p>
+    </div>
+  </div>
+  <div class="modal" id="myModal2">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <h3 class="text-xl font-bold text-white mb-4">Answer 2</h3>
+      <p><strong>Strengths:</strong> I am good at problem-solving, paying attention to detail, and working under pressure. I also enjoy learning new technologies.</p>
+      <p><strong>Weaknesses:</strong> Sometimes, I spend too much time perfecting small details. However, I’ve learned to balance quality with efficiency by setting time limits for tasks.</p>
+    </div>
+  </div>
+  <div class="modal" id="myModal3">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <h3 class="text-xl font-bold text-white mb-4">Answer 3</h3>
+      <p>I prioritize tasks based on urgency and importance. I break work into smaller steps and use tools like to-do lists or project management software. If needed, I also ask for help or delegate tasks to ensure everything gets done on time.</p>
+    </div>
+  </div>
+  <div class="modal" id="myModal4">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <h3 class="text-xl font-bold text-white mb-4">Answer 4</h3>
+      <p>Sure! Imagine a database is like a big digital filing cabinet. Instead of searching through paper files, a database organizes and stores information so you can quickly find what you need using queries, like searching for a contact on your phone.</p>
+    </div>
+  </div>
+  <div class="modal" id="myModal5">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <h3 class="text-xl font-bold text-white mb-4">Answer 5</h3>
+      <p>In one project, I worked with developers and designers to create a business management system. We had different roles, so we held regular meetings to ensure we were aligned. I focused on backend development, while others handled design and testing. Good communication helped us complete the project smoothly.</p>
+    </div>
+  </div>
+  <div class="modal" id="myModal6">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <h3 class="text-xl font-bold text-white mb-4">Answer 6</h3>
+      <p>I enjoy solving problems and building things that make a real impact. Learning new skills and improving my coding abilities also keeps me motivated. Plus, positive feedback from users or teammates encourages me to do my best.</p>
+    </div>
+  </div>
+  <div class="modal" id="myModal7">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <h3 class="text-xl font-bold text-white mb-4">Answer 7</h3>
+      <p>I list all tasks and rank them based on deadlines and importance. I focus on high-priority tasks first and break them into smaller steps to stay organized. If needed, I adjust my schedule to make sure everything is completed on time.</p>
+    </div>
+  </div>
+  <div class="modal" id="myModal8">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <h3 class="text-xl font-bold text-white mb-4">Answer 8</h3>
+      <p>When I started working on a project that required PHP, I had little experience with it. I quickly took online courses, read documentation, and practiced by building small features. Within a short time, I became comfortable with PHP and successfully contributed to the project.</p>
+    </div>
+  </div>
+  <div class="modal" id="myModal9">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <h3 class="text-xl font-bold text-white mb-4">Answer 9</h3>
+      <p>I see feedback as a way to improve. If I receive criticism, I listen carefully, ask questions if needed, and use it to make my work better. I don’t take it personally; instead, I focus on learning from it.</p>
+    </div>
+  </div>
+
+  <!-- Modal Script -->
+  <script src="scripts/index.js"></script>
+</body>
+</html>

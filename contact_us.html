@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Contact Us - Mock Interview Application</title>
+  <meta name="description" content="Get in touch with Mock Interview Application for any questions or support.">
+  <meta name="keywords" content="contact, support, mock interview, application">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-black text-gray-100">
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-900 shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <a class="text-gray-400 hover:text-gray-100" href="index.html" aria-label="Home">
+          <i class="fas fa-envelope-open-text"></i>
+        </a>
+        <a class="text-2xl font-bold text-gray-100 ml-4" href="#">
+          Contact Us
+        </a>
+      </div>
+      <div class="space-x-4 flex items-center">
+        <a class="text-gray-400 hover:text-gray-100 flex items-center" href="index.html" aria-label="Home">
+          <i class="fas fa-home mr-1"></i> Home
+        </a>
+        <a class="text-gray-400 hover:text-gray-100 flex items-center" href="interview_dash.html" aria-label="Start Interview">
+          <i class="fas fa-play mr-1"></i> Start Interview
+        </a>
+        <a class="text-gray-400 hover:text-gray-100 flex items-center" href="about.html" aria-label="About Us">
+          <i class="fas fa-info-circle mr-1"></i> About Us
+        </a>
+        <a class="text-gray-400 hover:text-gray-100 flex items-center" href="#" onclick="logout()" aria-label="Logout">
+          <i class="fas fa-sign-out-alt mr-1"></i> Logout
+        </a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Page Header -->
+  <header class="bg-gray-800 py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold text-gray-100 mb-4">Get in Touch with Us</h1>
+    </div>
+  </header>
+  
+  <!-- Contact Section -->
+  <section class="container mx-auto px-4 py-20">
+    <div class="mb-12 text-center">
+      <h3 class="text-2xl font-bold text-gray-100 mb-4">We'd Love to Hear From You</h3>
+      <p class="text-gray-300">
+        Whether you have a question about features, trials, pricing, need a demo, or anything else, our team is ready to answer all your questions.
+      </p>
+    </div>
+    
+    <!-- Contact Form -->
+    <div class="max-w-2xl mx-auto bg-gray-900 p-8 rounded-lg shadow-md">
+      <form action="#" method="POST" onsubmit="return validateForm()">
+        <div class="mb-6">
+          <label for="name" class="block text-gray-300 mb-2">Name</label>
+          <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-gray-800 text-gray-100 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500" required>
+        </div>
+        <div class="mb-6">
+          <label for="email" class="block text-gray-300 mb-2">Email</label>
+          <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-gray-800 text-gray-100 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500" required>
+        </div>
+        <div class="mb-6">
+          <label for="message" class="block text-gray-300 mb-2">Message</label>
+          <textarea id="message" name="message" rows="6" class="w-full px-4 py-2 bg-gray-800 text-gray-100 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500" required></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="bg-blue-500 text-gray-100 px-6 py-3 rounded-full hover:bg-blue-600">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Contact Information -->
+  <section class="container mx-auto px-4 py-20">
+    <h2 class="text-3xl font-bold text-gray-100 mb-8 text-center">Our Contact Information</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
+        <i class="fas fa-phone-alt text-blue-500 text-3xl mb-4"></i>
+        <h3 class="text-xl font-bold text-gray-100 mb-4">Phone</h3>
+        <p class="text-gray-300">+91 6397835158</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
+        <i class="fas fa-envelope text-blue-500 text-3xl mb-4"></i>
+        <h3 class="text-xl font-bold text-gray-100 mb-4">Email</h3>
+        <p class="text-gray-300">chauhanvishvanshu@gmail.com</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
+        <i class="fas fa-map-marker-alt text-blue-500 text-3xl mb-4"></i>
+        <h3 class="text-xl font-bold text-gray-100 mb-4">Address</h3>
+        <p class="text-gray-300">Knowledge Park 3 | Greater Noida | Uttar Pradesh - 201306</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <section class="container mx-auto px-4 py-20 text-center">
+    <div class="flex justify-center items-center space-x-4">
+      <a class="bg-gray-700 text-gray-100 px-6 py-3 rounded-full hover:bg-gray-600" href="index.html">
+        <i class="fas fa-arrow-left mr-2"></i>Back
+      </a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-400">© 2025 MockInterview. All rights reserved.</p>
+      <div class="mt-4 space-x-4">
+        <a class="text-gray-400 hover:text-gray-100" href="#">Home</a>
+        <a class="text-gray-400 hover:text-gray-100" href="#">About</a>
+        <a class="text-gray-400 hover:text-gray-100" href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+  <script src="scripts/contact_us.js"></script>
+</body>
+</html>

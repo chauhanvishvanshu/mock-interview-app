@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>About - Mock Interview Application</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-900 shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-info-circle text-2xl text-gray-100"></i>
+        <a class="text-2xl font-bold text-gray-100 ml-2" href="#">
+          About Us
+        </a>
+      </div>
+      <div class="hidden md:flex space-x-4">
+        <a class="text-gray-400 hover:text-gray-100 flex items-center" href="index.html">
+          <i class="fas fa-home mr-1"></i> Home
+        </a>
+        <a class="text-gray-400 hover:text-gray-100 flex items-center" href="interview_dash.html">
+          <i class="fas fa-play mr-1"></i> Start Interview
+        </a>
+        <a class="text-gray-400 hover:text-gray-100 flex items-center" href="contact_us.html">
+          <i class="fas fa-envelope-open-text mr-1"></i> Contact Us
+        </a>
+        <a class="text-gray-400 hover:text-gray-100 flex items-center" href="#" onclick="logout()">
+          <i class="fas fa-sign-out-alt mr-1"></i> Logout
+        </a>
+      </div>
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-gray-400 hover:text-white focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden">
+      <a class="block text-gray-400 hover:text-white px-4 py-2 flex items-center" href="index.html">
+        <i class="fas fa-home mr-1"></i> Home
+      </a>
+      <a class="block text-gray-400 hover:text-white px-4 py-2 flex items-center" href="interview_dash.html">
+        <i class="fas fa-play mr-1"></i> Start Interview
+      </a>
+      <a class="block text-gray-400 hover:text-white px-4 py-2 flex items-center" href="contact_us.html">
+        <i class="fas fa-envelope-open-text mr-1"></i> Contact Us
+      </a>
+      <a class="block text-gray-400 hover:text-white px-4 py-2 flex items-center" href="#" onclick="logout()">
+        <i class="fas fa-sign-out-alt mr-1"></i> Logout
+      </a>
+    </div>
+  </nav>
+  
+  <!-- Page Header -->
+  <header class="bg-gray-800 py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold text-gray-100 mb-4">AI-Powered Mock Interviews for Career Success</h1>
+      <p class="text-gray-300">Prepare for your next job interview with confidence and ease.</p>
+    </div>
+  </header>
+  
+  <!-- About Section -->
+  <section class="container mx-auto px-4 py-20">
+    <!-- Introduction to the Platform -->
+    <div class="mb-12">
+      <h3 class="text-2xl font-bold text-gray-100 mb-4">Introduction to the Platform</h3>
+      <p class="text-gray-300">
+        The AI Mock Interview Platform is a smart, interactive tool designed to help job seekers, students, and professionals practice for real-world interviews. Using AI-powered simulations, it replicates a real interview scenario, allowing users to practice, refine, and improve their communication skills before facing actual interviewers.
+      </p>
+    </div>
+    <!-- Purpose & Mission -->
+    <div class="mb-12">
+      <h3 class="text-2xl font-bold text-gray-100 mb-4">Why This Platform Exists? (Purpose & Mission)</h3>
+      <p class="text-gray-300">
+        Interviews can be challenging, and many candidates struggle with nervousness, communication skills, and structuring their answers. This platform provides a safe and interactive environment to practice interviews with an AI, receive instant feedback, and track progress over time.
+      </p>
+      <p class="text-gray-300">The mission of the platform is to:</p>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>Empower job seekers with AI-driven interview preparation.</li>
+        <li>Improve confidence by providing realistic mock interviews.</li>
+        <li>Provide instant feedback to help users identify their strengths and weaknesses.</li>
+        <li>Make interview practice accessible to everyone, anytime, anywhere.</li>
+      </ul>
+    </div>
+    <!-- Target Audience -->
+    <div class="mb-12">
+      <h3 class="text-2xl font-bold text-gray-100 mb-4">Who Can Use This Platform? (Target Audience)</h3>
+      <p class="text-gray-300">This platform is beneficial for:</p>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>Students & Fresh Graduates – Preparing for their first job interviews.</li>
+        <li>Job Seekers – Practicing before applying to new roles.</li>
+        <li>Professionals Switching Careers – Preparing for job transitions.</li>
+        <li>Tech & Non-Tech Candidates – Covers a variety of industries and roles.</li>
+      </ul>
+    </div>
+    <!-- User Benefits -->
+    <div>
+      <h3 class="text-2xl font-bold text-gray-100 mb-4">How Does It Help? (User Benefits)</h3>
+      <p class="text-gray-300">By using Mock Buddy, users can:</p>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>Real-time AI-Powered Mock Interviews – Simulates an actual interview experience.</li>
+        <li>Speech-to-Text Analysis – Transcribes and analyzes responses.</li>
+        <li>Instant AI Feedback – Provides insights on confidence, communication, and content quality.</li>
+        <li>Flexible & Customizable – Choose interview types, difficulty levels, and AI avatars.</li>
+        <li>Track Progress & Learn from Mistakes – View past interviews and suggested improvements.</li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- Key Features Section -->
+  <section class="container mx-auto px-4 py-20">
+    <h2 class="text-3xl font-bold text-gray-100 mb-8 text-center">Key Features Breakdown</h2>
+    <!-- AI-Powered Interviews -->
+    <div class="mb-12">
+      <h3 class="text-2xl font-bold text-gray-100 mb-4">AI-Powered Interviews</h3>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>
+          <strong>Realistic Mock Interviews with AI:</strong>
+          <p class="ml-4">
+            The platform simulates a real interview environment where users interact with an AI-driven interviewer. The AI asks questions dynamically, adapting based on the user’s responses.
+          </p>
+        </li>
+        <li>
+          <strong>Time-Based Responses:</strong>
+          <p class="ml-4">
+            Users must answer questions within a set time limit, simulating real-world pressure. A timer helps users manage their response time effectively.
+          </p>
+        </li>
+        <li>
+          <strong>Interactive Voice & Chat Options:</strong>
+          <p class="ml-4">
+            Users can choose to speak their answers (voice input) or type responses (text input). AI recognizes voice responses in real-time, making it an engaging experience.
+          </p>
+        </li>
+      </ul>
+    </div>
+    <!-- Speech-to-Text Analysis -->
+    <div>
+      <h3 class="text-2xl font-bold text-gray-100 mb-4">Speech-to-Text Analysis</h3>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>
+          <strong>Real-Time Transcription:</strong>
+          <p class="ml-4">
+            The platform converts spoken responses into text instantly. This helps users see their responses in written form for better clarity and self-evaluation.
+          </p>
+        </li>
+        <li>
+          <strong>Voice Recognition & Accuracy:</strong>
+          <p class="ml-4">
+            Utilizes advanced speech recognition to transcribe spoken words with high accuracy across different accents.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- How It Works Section -->
+  <section class="container mx-auto px-4 py-20">
+    <h2 class="text-3xl font-bold text-gray-100 mb-8 text-center">How It Works</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-xl font-bold text-gray-100 mb-4">Step 1: Select interview type & difficulty</h3>
+        <p class="text-gray-300">Choose the type of interview and difficulty level that suits your needs.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-xl font-bold text-gray-100 mb-4">Step 2: Answer AI-generated questions in real-time</h3>
+        <p class="text-gray-300">Respond to questions generated by our AI in a real-time interview setting.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-xl font-bold text-gray-100 mb-4">Step 3: Receive instant AI-powered feedback</h3>
+        <p class="text-gray-300">Get immediate feedback on your performance to help you improve.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Why Choose Us? Section -->
+  <section class="container mx-auto px-4 py-20">
+    <h2 class="text-3xl font-bold text-gray-100 mb-8 text-center">Why Choose Us?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+      <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-xl font-bold text-gray-100 mb-4">AI-driven Accuracy</h3>
+        <p class="text-gray-300">Benefit from the precision and reliability of AI technology.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-xl font-bold text-gray-100 mb-4">Realistic Interview Experience</h3>
+        <p class="text-gray-300">Simulate real interview scenarios to better prepare yourself.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-xl font-bold text-gray-100 mb-4">Personalized Improvement Suggestions</h3>
+        <p class="text-gray-300">Receive tailored advice to enhance your interview skills.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-xl font-bold text-gray-100 mb-4">Free & Easy to Use</h3>
+        <p class="text-gray-300">Enjoy a user-friendly platform at no cost.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <section class="container mx-auto px-4 py-20 text-center">
+    <div class="flex justify-center items-center space-x-4">
+      <a class="bg-gray-700 text-gray-100 px-6 py-3 rounded-full hover:bg-gray-600" href="index.html">
+        <i class="fas fa-arrow-left mr-2"></i>Back
+      </a>
+      <a class="bg-green-600 text-gray-100 px-6 py-3 rounded-full hover:bg-green-500" href="interview_dash.html">
+        Start a Mock Interview Now!
+      </a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-400">© 2025 Mock Buddy. All rights reserved.</p>
+      <div class="mt-4 space-x-4">
+        <a class="text-gray-400 hover:text-gray-100" href="#">Home</a>
+        <a class="text-gray-400 hover:text-gray-100" href="#">Contact Us</a>
+        <a class="text-gray-400 hover:text-gray-100" href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+  <script src="scripts/about.js"></script>
+</body>
+</html>

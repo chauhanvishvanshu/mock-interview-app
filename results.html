@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Interview Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Include jsPDF via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+  </style>
+  <script>
+    // Redirect to login page if no user is logged in.
+    if (!localStorage.getItem('loggedInUser')) {
+      window.location.href = 'login.html';
+    }
+  </script>
+ </head>
+ <body class="bg-gray-900 text-white">
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-900 shadow-md" role="navigation" aria-label="Main Navigation">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-chart-line text-2xl text-white" aria-hidden="true"></i>
+        <a class="text-3xl font-extrabold text-white ml-2" href="#">Result & Analysis</a>
+      </div>
+      <div class="hidden md:flex space-x-4">
+        <a class="text-gray-400 hover:text-white flex items-center" href="index.html">
+          <i class="fas fa-home mr-1"></i> Home
+        </a>
+        <a class="text-gray-400 hover:text-white flex items-center" href="#" onclick="logout()">
+          <i class="fas fa-sign-out-alt mr-1"></i> Logout
+        </a>
+      </div>
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-gray-400 hover:text-white focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden">
+      <a class="block text-gray-400 hover:text-white px-4 py-2 flex items-center" href="index.html">
+        <i class="fas fa-home mr-1"></i> Home
+      </a>
+      <a class="block text-gray-400 hover:text-white px-4 py-2 flex items-center" href="#" onclick="logout()">
+        <i class="fas fa-sign-out-alt mr-1"></i> Logout
+      </a>
+    </div>
+  </nav>
+  
+  <!-- Main Content -->
+  <section class="container mx-auto px-4 py-8">
+    <!-- Thank You Message -->
+    <div class="text-center mb-8">
+      <h1 class="text-5xl font-bold text-white">Thank You for Completing the Interview!</h1>
+    </div>
+    <!-- Performance Summary Section -->
+    <div class="bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 mb-8">
+      <h2 class="text-3xl font-bold text-white mb-4">Attempted Questions</h2>
+      <p class="text-gray-300 text-xl">You attempted <span id="overall-score" class="text-blue-400 font-bold"></span> questions.</p>
+    </div>
+    <!-- Questions and Answers Section -->
+    <div class="bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 mb-8">
+      <h2 class="text-3xl font-bold text-white mb-4">Questions and Answers</h2>
+      <div id="qa-container" class="space-y-6">
+        <!-- Q&A items will be appended here dynamically -->
+      </div>
+    </div>
+    <!-- Action Buttons -->
+    <div class="text-center space-x-4">
+      <button class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600" onclick="reattempt()">Reattempt</button>
+      <button id="download-report-button" class="bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600">Download Report</button>
+      <button class="bg-gray-500 text-white px-6 py-3 rounded-full hover:bg-gray-600" onclick="window.location.href='index.html'">Home Page</button>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-800 py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-400">© 2025 MockInterview. All rights reserved.</p>
+      <div class="mt-4 space-x-4">
+        <a class="text-gray-400 hover:text-white" href="https://www.facebook.com" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="text-gray-400 hover:text-white" href="https://www.twitter.com" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a class="text-gray-400 hover:text-white" href="https://www.linkedin.com" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- JavaScript to load Q&A data and generate PDF -->
+  <script src="scripts/results.js"></script>
+</body>
+</html>
