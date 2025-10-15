@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)]()
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-blue?logo=github)]()
-[![Live Demo](https://img.shields.io/badge/Live-Demo-green)]()
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green)](https://mockbuddy.netlify.app/)
 
 A **clean and professional frontend** for a mock interview application, built with HTML, CSS, and JavaScript. Perfect as a client-side prototype for interview practice platforms.
 
@@ -65,6 +65,7 @@ A **clean and professional frontend** for a mock interview application, built wi
 
 * **GitHub Pages**: Push to GitHub, enable Pages (branch `main`).
 * **Other static hosts**: Netlify, Vercel, Surge.
+* **Live Demo**: [https://mockbuddy.netlify.app/](https://mockbuddy.netlify.app/)
 
 ---
 
